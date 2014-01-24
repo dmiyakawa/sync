@@ -10,14 +10,16 @@ No security consideration.
 
 For Apache. Again, no security consideration.
 
-> ./manage.py syncdb
-..
 > sudo chgrp www-data data
 > sudo chmod 770 data
+> ./manage.py syncdb
+..
+> sudo chgrp www-data data/sqlite3db
 > sudo chmod 660 data/sqlite3db
 
 (configure apache config)
 
+    (For 2.2)
     WSGIScriptAlias /sync /opt/sync/sync/wsgi.py
     <Directory /opt/sync/sync>
         <Files wsgi.py>
@@ -26,4 +28,11 @@ For Apache. Again, no security consideration.
         </Files>
     </Directory>
 
+    (For 2.4)
+    WSGIScriptAlias /sync /opt/sync/sync/wsgi.py
+    <Directory /opt/sync/sync>
+        <Files wsgi.py>
+            Require all granted
+        </Files>
+    </Directory>
 
