@@ -10,7 +10,7 @@ ADMINS = (
 import os.path
 from os.path import dirname
 PROJECT_ROOT = dirname(dirname(os.path.realpath(__file__)))
-DB_PATH = os.path.join(PROJECT_ROOT, 'sqlite3.db')
+DB_PATH = os.path.join(PROJECT_ROOT, 'data', 'sqlite3.db')
 
 MANAGERS = ADMINS
 
